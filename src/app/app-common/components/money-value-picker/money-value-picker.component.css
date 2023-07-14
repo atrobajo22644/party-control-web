@@ -1,0 +1,11 @@
+.money-value-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.money-value-picker p {
+  margin: 0 5px;
+}

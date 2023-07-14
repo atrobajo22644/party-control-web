@@ -1,0 +1,37 @@
+<app-header/>
+<mat-sidenav-container class="app-sidenav-container">
+  <mat-sidenav class="app-sidenav"
+               [attr.role]="(navigationService.isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(navigationService.isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(navigationService.sideNavVisible$() | async) === true">
+    <mat-nav-list>
+      <mat-list-item role="listitem" routerLink="/event" routerLinkActive="active">
+        <mat-icon matListItemIcon>event_available</mat-icon>
+        <span matListItemTitle>Current event</span>
+      </mat-list-item>
+      <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="true" *ngFor="let section of sideNavSections">
+        <mat-expansion-panel-header>
+          {{section.text}}
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let item of section.items" role="listitem" routerLink="{{item.link}}" routerLinkActive="active">
+            <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+            <span matListItemTitle>{{item.text}}</span>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <!--<mat-list-item *ngFor="let item of sideNavItems" role="listitem" routerLink="{{item.link}}" routerLinkActive="active">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <span matListItemTitle>{{item.text}}</span>
+      </mat-list-item>-->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="app-sidenav-content">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+<app-footer/>

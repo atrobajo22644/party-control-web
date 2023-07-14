@@ -1,0 +1,6 @@
+.mat-expansion-panel-content {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+  gap: 25px;
+}

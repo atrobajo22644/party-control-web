@@ -1,0 +1,46 @@
+
+.mat-mdc-dialog-title {
+  margin: 0;
+}
+
+.mat-mdc-dialog-content {
+  padding: 10px 20px 10px 20px;
+  overflow: unset;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end;
+  padding: 5px 0;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 340px;
+}
+
+@media only screen and (max-width: 425px) {
+  .mat-mdc-form-field {
+    font-size: 12px;
+    width: 260px;
+  }
+}
+
+.promoter-list-container {
+  margin-top: 10px;
+}
+
+.promoter-list-title {
+  margin: 0 0 5px 0;
+}
+
+.mat-mdc-list-base {
+  max-height: 170px;
+  overflow: scroll;
+  border-style: solid;
+  border-width: 1px;
+  overflow-x: unset;
+}
+
+.mdc-list-item.mdc-list-item--with-one-line {
+  height: 36px;
+}

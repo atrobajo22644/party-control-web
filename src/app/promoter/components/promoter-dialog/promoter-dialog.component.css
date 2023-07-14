@@ -1,0 +1,24 @@
+.mat-mdc-dialog-title {
+  margin: 0 0 5px;
+}
+
+.mat-mdc-dialog-content {
+  padding: 10px 20px 10px 20px;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end;
+  padding: 5px 0;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 340px;
+}
+
+@media only screen and (max-width: 425px) {
+  .mat-mdc-form-field {
+    font-size: 12px;
+    width: 260px;
+  }
+}

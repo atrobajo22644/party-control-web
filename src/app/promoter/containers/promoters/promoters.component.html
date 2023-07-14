@@ -1,0 +1,16 @@
+<app-page-layout>
+  <app-page-header>
+    <app-page-title title="Promoters list"/>
+    <app-raised-button [color]="'primary'"
+                       [icon]="'person_add'"
+                       [label]="'Add'"
+                       (btnClickedEvent)="onAddClick()"/>
+  </app-page-header>
+  <app-promoter-table [_promoters]="promoters" [pageNumber]="pageNumber"
+                      [totalItems]="totalItems" [totalPages]="totalPages"
+                      [loading$]="promoterService.loadingSubject.asObservable()"
+                      (deletePromoterEvent)="confirmDelete($event)"
+                      (editPromoterEvent)="onEditClick($event)"
+                      (toggleActiveEvent)="onToggleActive($event)"
+                      (getPromotersEvent)="onGetPromotersEvent($event)"/>
+</app-page-layout>

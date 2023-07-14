@@ -1,0 +1,22 @@
+<app-page-layout>
+  <app-page-header>
+    <app-page-title *ngIf="event"
+                    title="{{event.name}}"
+                    subtitle="{{event.eventDate | date: 'mediumDate'}}"/>
+    <div class="pickers-container">
+      <app-number-value-picker [value]="freePromotersLadies + event.freeLadiesTotal"
+                               [label]="'Total free ladies: '"
+                               (clickUpEvent)="onClickUpLadies()"
+                               (clickDownEvent)="onClickDownLadies()"
+                        [min]="event.freeLadiesTotal"/>
+      <app-money-value-picker [value]="event.vipTotal" [label]="'Total vip: '"
+                              (clickUpEvent)="onClickUpVip($event)"
+                              (clickDownEvent)="onClickDownVip($event)"/>
+    </div>
+  </app-page-header>
+  <app-current-event-table [_promoters]="event.promoters"
+                           (updateEventPromoter)="onUpdateEventPromoter($event)"/>
+  <app-current-event-totals [totalGeneralAdmission]="event.totalGeneralAdmission"
+                            [totalOver21]="event.totalOver21"
+                            (btnSaveClicked)="onSaveTotals($event)"/>
+</app-page-layout>

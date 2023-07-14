@@ -1,0 +1,99 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Promoter</th>
+    <td mat-cell *matCellDef="let element">{{element.promoter.name}}</td>
+    <td mat-footer-cell *matFooterCellDef> Totals </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ladies">
+    <th mat-header-cell *matHeaderCellDef class="action-header">Ladies</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="action-column">
+        <button mat-icon-button (click)="countLadiesDown(element)" matTooltip="Click to subtract 1" [disabled]="element.ladies == 0">
+          <mat-icon aria-label="Edit">arrow_circle_down</mat-icon>
+        </button>
+        <p>{{element.ladies}}</p>
+        <button mat-icon-button (click)="countLadiesUp(element)" matTooltip="Click to add 1">
+          <mat-icon aria-label="Delete">arrow_circle_up</mat-icon>
+        </button>
+      </div>
+    </td>
+    <td mat-footer-cell *matFooterCellDef class="action-header">{{totalLadies}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="gentlemen">
+    <th mat-header-cell *matHeaderCellDef class="action-header">Gentlemen</th>
+    <td mat-cell *matCellDef="let element" class="ladies-column">
+      <div class="action-column">
+        <button mat-icon-button (click)="countGentlemenDown(element)" matTooltip="Click to subtract 1" [disabled]="element.guys == 0">
+          <mat-icon aria-label="Edit">arrow_circle_down</mat-icon>
+        </button>
+        <p>{{element.guys}}</p>
+        <button mat-icon-button (click)="countGentlemenUp(element)" matTooltip="Click to add 1">
+          <mat-icon aria-label="Delete">arrow_circle_up</mat-icon>
+        </button>
+      </div>
+    </td>
+    <td mat-footer-cell *matFooterCellDef class="action-header">{{totalGentlemen}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="free-ladies">
+    <th mat-header-cell *matHeaderCellDef class="action-header">Free ladies</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="action-column">
+        <button mat-icon-button (click)="countFreeLadiesDown(element)" matTooltip="Click to subtract 1" [disabled]="element.freeLadies == 0">
+          <mat-icon aria-label="Edit">arrow_circle_down</mat-icon>
+        </button>
+        <p>{{element.freeLadies}}</p>
+        <button mat-icon-button (click)="countFreeLadiesUp(element)" matTooltip="Click to add 1">
+          <mat-icon aria-label="Delete">arrow_circle_up</mat-icon>
+        </button>
+      </div>
+    </td>
+    <td mat-footer-cell *matFooterCellDef class="action-header">{{totalFreeLadies}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="vip">
+    <th mat-header-cell *matHeaderCellDef class="action-header">VIP</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="action-column">
+        <button mat-icon-button (click)="countVipDown100(element)" matTooltip="Click to subtract 100" [disabled]="element.vip == 0">
+          <mat-icon aria-label="Edit">arrow_circle_down</mat-icon>
+        </button>
+        <button mat-icon-button (click)="countVipDown50(element)" matTooltip="Click to subtract 50" [disabled]="element.vip == 0">
+          <mat-icon aria-label="Edit">arrow_circle_down</mat-icon>
+        </button>
+        <p>{{element.vip}}</p>
+        <button mat-icon-button (click)="countVipUp50(element)" matTooltip="Click to add 50">
+          <mat-icon aria-label="Delete">arrow_circle_up</mat-icon>
+        </button>
+        <button mat-icon-button (click)="countVipUp100(element)" matTooltip="Click to add 100">
+          <mat-icon aria-label="Delete">arrow_circle_up</mat-icon>
+        </button>
+      </div>
+    </td>
+    <td mat-footer-cell *matFooterCellDef class="action-header">{{totalVip}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="paid">
+    <th mat-header-cell *matHeaderCellDef class="action-header">Paid</th>
+    <td mat-cell *matCellDef="let element">
+      <div class="action-column">
+        <mat-slide-toggle [checked]="element.paid===true" (click)="togglePaid(element)"/>
+      </div>
+    </td>
+    <td mat-footer-cell *matFooterCellDef class="action-header"></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="6">There is no data available...</td>
+  </tr>
+</table>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading$ | async"/>
+

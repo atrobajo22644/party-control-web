@@ -1,0 +1,16 @@
+<app-page-layout>
+  <app-page-header>
+    <app-page-title title="Events list"/>
+    <app-raised-button [color]="'primary'"
+                       [icon]="'add'"
+                       [label]="'Add'"
+                       (btnClickedEvent)="onAddClick()"/>
+  </app-page-header>
+  <app-event-table [_events]="events" [pageNumber]="pageNumber"
+                   [totalItems]="totalItems" [totalPages]="totalPages"
+                   [loading$]="eventService.loadingSubject.asObservable()"
+                   (deleteEventEvent)="confirmDelete($event)"
+                   (editEventEvent)="onEditClick($event)"
+                   (toggleOpenEvent)="onToggleOpen($event)"
+                   (getEventsEvent)="onGetEventsEvent($event)"/>
+</app-page-layout>

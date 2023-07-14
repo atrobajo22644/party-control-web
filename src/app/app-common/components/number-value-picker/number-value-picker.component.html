@@ -1,0 +1,10 @@
+<div class="number-value-picker">
+  <div>{{label}}</div>
+  <button mat-icon-button (click)="onClickDown()" matTooltip="Click to subtract 1" [disabled]="min == 0">
+    <mat-icon>arrow_circle_down</mat-icon>
+  </button>
+  <p>{{value}}</p>
+  <button mat-icon-button (click)="onClickUp()" matTooltip="Click to add 1">
+    <mat-icon>arrow_circle_up</mat-icon>
+  </button>
+</div>

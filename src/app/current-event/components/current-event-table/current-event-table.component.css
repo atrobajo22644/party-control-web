@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+}
+.mat-mdc-header-cell {
+  font-size: 14px;
+  background-color: #00000033 !important;
+}
+
+.mat-mdc-footer-cell {
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #00000033 !important;
+}
+
+.cdk-cell p {
+  margin: 0 5px;
+}
+
+.action-header {
+  text-align: center;
+}
+
+.action-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-column-paid {
+  width: 50px;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  --mdc-icon-button-state-layer-size: 51px;
+}

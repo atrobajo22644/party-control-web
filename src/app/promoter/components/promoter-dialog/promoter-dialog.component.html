@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>
+  {{title}}
+</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="promoterForm" (submit)="submitForm()">
+    <div>
+      <input matInput [hidden]="true" formControlName="id">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name">
+        <mat-error *ngIf="promoterForm.invalid">Name field is mandatory</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mat-form-field">
+      <mat-checkbox formControlName="active">Active</mat-checkbox>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false">Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Accept</button>
+    </div>
+  </form>
+</div>

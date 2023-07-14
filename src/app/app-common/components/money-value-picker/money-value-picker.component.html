@@ -1,0 +1,16 @@
+<div class="money-value-picker">
+  <div>{{label}}</div>
+  <button mat-icon-button (click)="onClickDown(100)" matTooltip="Click to subtract 100" [disabled]="value == 0">
+    <mat-icon>arrow_circle_down</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onClickDown(50)" matTooltip="Click to subtract 50" [disabled]="value == 0">
+    <mat-icon>arrow_circle_down</mat-icon>
+  </button>
+  <p>{{value}}</p>
+  <button mat-icon-button (click)="onClickUp(50)" matTooltip="Click to add 50">
+    <mat-icon>arrow_circle_up</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onClickUp(100)" matTooltip="Click to add 100">
+    <mat-icon>arrow_circle_up</mat-icon>
+  </button>
+</div>
