@@ -30,7 +30,7 @@ export const sideNavItems: SideNavItem[] = [
   },
   {
     icon: 'event_available',
-    text: 'Event',
+    text: 'Current event',
     link: '/event',
   },
   {

@@ -1,6 +1,6 @@
 export interface RouteData {
   title?: string;
-  breadcrumbs: Breadcrumb[];
+  //breadcrumbs: Breadcrumb[];
 }
 
 export interface Breadcrumb {

@@ -14,6 +14,10 @@
         <mat-label>Over 21</mat-label>
         <input matInput type="number" [(ngModel)]="totalOver21" min="1">
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Total</mat-label>
+        <input matInput disabled [ngModel]="totalGeneralAdmission+totalOver21">
+      </mat-form-field>
     </div>
     <mat-action-row>
       <app-raised-button [label]="'Save'" icon="'save'" [color]="'primary'" (btnClickedEvent)="submitForm()"/>

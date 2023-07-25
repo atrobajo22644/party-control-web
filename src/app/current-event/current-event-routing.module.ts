@@ -17,17 +17,7 @@ export const ROUTES: Routes = [
     canActivate: [],
     component: containers.EventComponent,
     data: {
-      title: 'Event - Party Control',
-      breadcrumbs: [
-        {
-          text: 'Dashboard',
-          link: '/promoters',
-        },
-        {
-          text: 'Events',
-          active: true,
-        },
-      ],
+      title: 'Current event - Party Control'
     } as RouteData,
   },
 ];

@@ -13,12 +13,10 @@ export class CurrentEventTotalsComponent {
   expanded: boolean = false;
 
   submitForm() {
-    if (this.totalGeneralAdmission > 0 && this.totalOver21 > 0) {
-      this.btnSaveClicked.emit({
-        totalGeneralAdmission: this.totalGeneralAdmission,
-        totalOver21: this.totalOver21
-      });
-      this.expanded = false;
-    }
+    this.btnSaveClicked.emit({
+      totalGeneralAdmission: this.totalGeneralAdmission,
+      totalOver21: this.totalOver21
+    });
+    this.expanded = false;
   }
 }

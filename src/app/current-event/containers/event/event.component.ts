@@ -51,15 +51,16 @@ export class EventComponent implements OnInit {
     }
   }
 
-  onClickUpVip($event: number) {
-    this.event.vipTotal += $event;
+  onClickUpVip() {
+    this.event.vipTotal += 1;
     this.updateEvent();
   }
 
-  onClickDownVip($event: number) {
-    let value = this.event.vipTotal - $event;
-    this.event.vipTotal = value < 0 ? 0 : value;
-    this.updateEvent();
+  onClickDownVip() {
+    if (this.event.vipTotal > 0) {
+      this.event.vipTotal -= 1;
+      this.updateEvent();
+    }
   }
 
   calculateTotals = () => {
