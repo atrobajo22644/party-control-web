@@ -40,7 +40,7 @@ export class EventsComponent implements OnInit {
       });
   }
 
-  createEvent(event: NewEvent): void {
+  createEvent(event: UpdateEvent): void {
     this.eventService.createEvent(event)
       .subscribe((response: Event) => {
         if (response) {
@@ -49,10 +49,10 @@ export class EventsComponent implements OnInit {
       });
   }
 
-  updateEvent(event: NewEvent,id: number): void {
-    let updateEvent: UpdateEvent = {...event, vipTotal: 0, freeLadiesTotal: 0, totalOver21: 0, totalGeneralAdmission: 0};
-    console.log('updateEvent: ', updateEvent);
-    this.eventService.updateEvent(updateEvent, id)
+  updateEvent(event: UpdateEvent,id: number): void {
+    //let updateEvent: UpdateEvent = {...event, vipTotal: 0, freeLadiesTotal: 0, totalOver21: 0, totalGeneralAdmission: 0};
+    console.log('updateEvent: ', event);
+    this.eventService.updateEvent(event, id)
       .subscribe((response: Event) => {
         if (response) {
           this.loadEvents(eventInitFilter);
@@ -113,7 +113,7 @@ export class EventsComponent implements OnInit {
 
   onToggleOpen(event: Event) {
     event.open = !event.open;
-    let newEvent: NewEvent = {...event, promoters: event.promoters.map(p => p.promoter.id)};
+    let newEvent: UpdateEvent = {...event, promoters: event.promoters.map(p => p.promoter.id)};
     this.updateEvent(newEvent, event.id);
   }
 

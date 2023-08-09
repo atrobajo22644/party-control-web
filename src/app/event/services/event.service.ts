@@ -25,7 +25,7 @@ export class EventService {
     }).pipe(finalize(() => this.loadingSubject.next(false)));
   }
 
-  createEvent(event: NewEvent) : Observable<Event>{
+  createEvent(event: UpdateEvent) : Observable<Event>{
     return this.http.post<Event>(`${this.API_URL}/events`, event);
   }
 

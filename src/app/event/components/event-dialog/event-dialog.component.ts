@@ -2,7 +2,7 @@ import {Component, Inject, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {EventDialogModel} from "../../../promoter/models";
-import {Promoter} from "../../../app-common/models";
+import {Event, Promoter} from "../../../app-common/models";
 import {MatSelectionList} from "@angular/material/list";
 
 @Component({
@@ -15,6 +15,7 @@ export class EventDialogComponent {
   todayDate:Date = new Date();
   listOfPromoters: Promoter[] = [];
   selectedPromoters: Promoter[] = [];
+  event: Event;
 
   @ViewChild('promoters') promoterList: MatSelectionList;
 
@@ -40,12 +41,17 @@ export class EventDialogComponent {
       eventDate: data.event.eventDate ? new Date(data.event.eventDate.toString() + 'T00:00:00'): this.todayDate,
       open: data.event.open
     });
+    this.event = data.event;
   }
 
   submitForm(): void {
     if (this.eventForm.valid) {
       let event = {
         ...this.eventForm.value,
+        vipTotal: this.event.vipTotal,
+        freeLadiesTotal: this.event.freeLadiesTotal,
+        totalGeneralAdmission: this.event.totalGeneralAdmission,
+        totalOver21: this.event.totalOver21,
         promoters: this.promoterList.selectedOptions.selected.map(element => element.value.id)
       };
       this.dialogRef.close(event);

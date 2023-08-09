@@ -38,6 +38,7 @@ export interface NewEvent {
 }
 
 export interface UpdateEvent {
+  id: number;
   name: string;
   eventDate: Date;
   vipTotal: number;
